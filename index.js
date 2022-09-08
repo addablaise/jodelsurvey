@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 // append /api to endpoints
-// app.use('/api/auth', require('./src/routes/authRoute'));
+app.use('/api/survey', require('./src/routes/surveyRoute'));
 
 
 app.get('/', (req, res) => {
