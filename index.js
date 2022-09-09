@@ -3,6 +3,7 @@ const app = express()
 app.use(express.json())
 // append /api to endpoints
 app.use('/api/survey', require('./src/routes/surveyRoute'));
+app.use('/api/question', require('./src/routes/questionRoute'));
 
 
 app.get('/', (req, res) => {
