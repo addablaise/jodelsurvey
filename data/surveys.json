@@ -1,18 +1,14 @@
 [
   {
     "survey_id": "881ee0f3-66c5-4ea3-8e99-1ec5bb314061",
-    "survey_name": "Favourite programming language"
+    "survey_name": "Programming Language Survey"
   },
   {
     "survey_id": "589ca050-ce18-4065-842c-bfc320ecb61f",
     "survey_name": "Favourite book survey"
   },
   {
-    "survey_id": "fe24de11-9b48-47d7-b612-f857c8001feb",
-    "survey_name": "Best Hotel Experience"
-  },
-  {
-    "survey_id": "2a13bf6c-c83f-48ec-817e-e6b8c98733a3",
-    "survey_name": "Best beach in Germany"
+    "survey_id": "b49a960a-3143-40d5-960e-590be26bcf2e",
+    "survey_name": "Fanciest Builden in Germany"
   }
 ]

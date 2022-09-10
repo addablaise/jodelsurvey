@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const Joi = require('joi')
 const { getSurveys,createSurvey
-    ,findSurvey,updateSurvey,deleteSurvey } = require('../dboperations/surveyOperation')
+    ,findSurvey,updateSurvey,deleteSurvey,errorResponse } = require('../dboperations/surveyOperation')
 
 
 
@@ -18,7 +18,7 @@ router.route('/create').post((req,res) => {
         survey_name: Joi.string().min(3).required(),
     })
     const validationResult = surveySchema.validate(req.body, {abortEarly: false})
-    if(validationResult.error) return res.json('Survey name required')
+    if(validationResult.error) return errorResponse(res,'Survey name required')
 
     const {survey_name} = req.body
     const survey = {
@@ -40,7 +40,7 @@ router.route('/update/:id').put((req,res) => {
         survey_name: Joi.string().min(3).required(),
     })
     const validationResult = surveySchema.validate(req.body, {abortEarly: false})
-    if(validationResult.error) return res.json('Survey name required')
+    if(validationResult.error) return errorResponse(res,'Survey name required')
 
     const {id} = req.params
     const {survey_name} = req.body
