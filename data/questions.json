@@ -1,91 +1,23 @@
 [
   {
-    "question_id": "e88b0a83-c5fb-4648-8d4f-520fb7b8def3",
-    "survey_id": "881ee0f3-66c5-4ea3-8e99-1ec5bb314061",
-    "question_string": "Scariest fire read",
+    "question_id": "7931945e-1b90-4b62-8cfe-530432affa76",
+    "survey_id": "f0c7c329-c43a-4af8-be78-3c3abc89d4f5",
+    "question_string": "What is your favorite color?",
     "answers": [
       {
-        "ans": "Pitch Fork 2",
-        "selected": "false"
-      },
-      {
-        "ans": "Love at first sight",
-        "selected": "false"
-      },
-      {
-        "ans": "Angels",
-        "selected": "false"
-      }
-    ]
-  },
-  {
-    "question_id": "5324988b-2eb7-43cd-bf6e-f3e1a384661d",
-    "survey_id": "589ca050-ce18-4065-842c-bfc320ecb61f",
-    "question_string": "Scariest read",
-    "answers": [
-      {
-        "ans": "Pict fork",
-        "selected": "false"
-      },
-      {
-        "ans": "Love at first sight",
+        "ans": "Sea Blue",
         "selected": "true"
       },
       {
-        "ans": "Angels",
-        "selected": "false"
-      }
-    ]
-  },
-  {
-    "question_id": "542fc731-d5b5-498c-b788-ec434413ecff",
-    "survey_id": "589ca050-ce18-4065-842c-bfc320ecb61f",
-    "question_string": "Shortest read",
-    "answers": [
-      {
-        "ans": "Love is blind",
+        "ans": "Green",
         "selected": "false"
       },
       {
-        "ans": "Kill them",
+        "ans": "Red",
         "selected": "false"
       },
       {
-        "ans": "Jesus is King",
-        "selected": "true"
-      }
-    ]
-  },
-  {
-    "question_id": "719cd70f-95c4-4500-85f1-0b19c07f886f",
-    "survey_id": "589ca050-ce18-4065-842c-bfc320ecb61f",
-    "question_string": "Biggest Book",
-    "answers": [
-      {
-        "ans": "Cassidy",
-        "selected": "false"
-      },
-      {
-        "ans": "Princess house",
-        "selected": "false"
-      },
-      {
-        "ans": "Men are bad",
-        "selected": "true"
-      }
-    ]
-  },
-  {
-    "question_id": "4475c709-2198-4b87-b89b-c99ad729100f",
-    "survey_id": "589ca050-ce18-4065-842c-bfc320ecb61f",
-    "question_string": "Oldest Book",
-    "answers": [
-      {
-        "ans": "Minions",
-        "selected": "true"
-      },
-      {
-        "ans": "Casablanka house",
+        "ans": "Yellow",
         "selected": "false"
       }
     ]

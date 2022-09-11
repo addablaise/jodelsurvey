@@ -4,16 +4,17 @@ const router = express.Router()
 const Joi = require('joi')
 const { getSurveys,createSurvey
     ,findSurvey,updateSurvey,deleteSurvey,errorResponse } = require('../dboperations/surveyOperation')
+const checkAuth = require('../middleware/checkAuth')
 
 
 
 // get all surveys
-router.route('/all').get((req,res) => {
+router.route('/all').get(checkAuth,(req,res) => {
     getSurveys({res : res})
 })
 
 // create new survey
-router.route('/create').post((req,res) => {
+router.route('/create').post(checkAuth,(req,res) => {
     const surveySchema = Joi.object({
         survey_name: Joi.string().min(3).required(),
     })
@@ -29,13 +30,13 @@ router.route('/create').post((req,res) => {
 })
 
 // view/find survey by survey id
-router.route('/view/:id').get((req,res) => {
+router.route('/view/:id').get(checkAuth,(req,res) => {
     const {id} = req.params
     findSurvey({id:id,res : res})
 }) 
 
 // update survey by survey id
-router.route('/update/:id').put((req,res) => {
+router.route('/update/:id').put(checkAuth,(req,res) => {
     const surveySchema = Joi.object({
         survey_name: Joi.string().min(3).required(),
     })
@@ -48,7 +49,7 @@ router.route('/update/:id').put((req,res) => {
 }) 
 
 // delete survey by survey id
-router.route('/delete/:id').get((req,res) => {
+router.route('/delete/:id').get(checkAuth,(req,res) => {
     const {id} = req.params
     deleteSurvey({id:id,res : res})
 }) 

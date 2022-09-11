@@ -4,6 +4,7 @@ const router = express.Router()
 const Joi = require('joi')
 const { createQuestion,findSurveyQuestions,updateQuestion,
     updateQuestions,errorResponse,validationErrors } = require('../dboperations/questionOperation')
+const checkAuth = require('../middleware/checkAuth')
 
 // create new question
 router.route('/create').post((req,res) => {
