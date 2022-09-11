@@ -59,7 +59,7 @@ async function deleteSurvey({ id : id,res: res }) {
     let questions = JSON.parse(fs.readFileSync(questionDataPath))
 
     var surveyToDelete = surveys.find(survey => survey.survey_id === id)
-    if(!surveyToDelete) return res.json('Survey not found')
+    if(!surveyToDelete) return errorResponse(res,'Survey not found')
     // filter out surveys that dont match survey ID
     const surveyRemaining = surveys.filter(survey => survey.survey_id !== id)
     // filter out questions that dont match survey ID

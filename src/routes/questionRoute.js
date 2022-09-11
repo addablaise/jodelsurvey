@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const Joi = require('joi')
 const { createQuestion,findSurveyQuestions,updateQuestion,
-    updateQuestions,errorResponse,validationErrors } = require('../dboperations/questionOperation')
+    updateQuestions,deleteQuestion,errorResponse,validationErrors } = require('../dboperations/questionOperation')
 const checkAuth = require('../middleware/checkAuth')
 
 // create new question
@@ -45,6 +45,12 @@ router.route('/update').post((req,res) => {
     }
     updateQuestion({question:question,res : res})
 })
+
+// delete question by question id
+router.route('/delete/:id').get((req,res) => {
+    const {id} = req.params
+    deleteQuestion({id:id,res : res})
+}) 
 
 // submit answer to question
 router.route('/submit').post((req,res) => {

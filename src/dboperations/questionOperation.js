@@ -79,6 +79,26 @@ async function findSurveyQuestions({ id: id, res: res }) {
     })
 }
 
+// delete Question
+async function deleteQuestion({ id : id,res: res }) {
+    let questions = JSON.parse(fs.readFileSync(questionDataPath))
+
+    var questionToDelete = questions.find(question => question.question_id === id)
+    if(!questionToDelete) return errorResponse(res,'Question not found')
+    // filter out questions remaining
+    const questionsRemaining = questions.filter(question => question.question_id !== id)
+    fs.writeFile(questionDataPath, JSON.stringify(questionsRemaining, null, 2), err => {
+        if(err){
+            console.log('An error occured');
+        }else{
+            console.log('Success');
+        }
+    })
+    return res.json({
+        status: 'success',
+        'surveys': questionsRemaining})
+}
+
 function errorResponse(res,msg){
     return res.json({
         status: 'error',
@@ -98,6 +118,7 @@ module.exports = {
     findSurveyQuestions: findSurveyQuestions,
     updateQuestion: updateQuestion,
     updateQuestions: updateQuestions,
+    deleteQuestion: deleteQuestion,
     errorResponse:errorResponse,
     validationErrors: validationErrors
 }
