@@ -18,6 +18,7 @@ This is a survey api developed with Nodejs.<br /><br />
 
 
 
+
 **This API uses the following packages**<br />
 
 | **Package**  | **Purpose** |
@@ -28,6 +29,7 @@ This is a survey api developed with Nodejs.<br /><br />
 | express | It's a layer built on the top of the Node js that helps manage servers and routes |
 | express-joi-validation | Validate express application inputs and parameters using joi |
 | uuid | Generating unique IDs |
+| mysql | Running/executing sql queries |
 
 <br/> Setup <br/>
 Run the following command in your terminal to install these packages
@@ -35,7 +37,40 @@ Run the following command in your terminal to install these packages
   npm install
 ```
 Don’t forget to add auth_token set to 1234 in your headers
+<img width="1014" alt="Screen Shot 2022-09-12 at 8 42 05 AM" src="https://user-images.githubusercontent.com/13081314/189610690-21cf506e-fc4d-461e-a765-02bf7762d3f5.png">
 
+<br/> Data Storage <br/>
+The application currently uses local data files stored in data folder
+| **Filename**  | **Purpose** |
+| ------------- | ------------- |
+| questions.json | For saving survey questions. should be set to [] when empty |
+| surveys.json | For saving surveys. should be set to [] when empty |
+<br/>
+To connect to an external database perform the following steps<br/>
+- Configure the .env file with your server credentials <br/>
+- Make edits to the dbconfig.js file located src/config/dbconfig.js
+<br/>
+An example of how to execute a query to a real database can be found in src/dboperations/surveyOperations.js<br/>
+
+```bash
+  var dbconfig = require('../config/dbconfig')
+  const { createPool } = require('mysql');
+  
+  async function getSurveybyID_RealServer({ id: id, res: res }) 
+      {
+      const pool = await createPool(dbconfig)
+      pool.query(`select * from survey WHERE survey_id = '${id}'`, function (err, result, fields) {
+          if (err) {
+              return res.json(err);
+          }
+          if (result.length > 0) return errorResponse(res,'Survey not found')
+          return res.json({
+              status: 'success',
+              'survey': result})
+      })
+  }
+```
+-----------------------------------------------------------
 **Survey Requests**
 -------------------
 **POST Create Survey**<br/>
