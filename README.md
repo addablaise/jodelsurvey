@@ -36,6 +36,11 @@ Run the following command in your terminal to install these packages
 ```bash
   npm install
 ```
+Run the following command in your terminal start the API server on PORT 3000
+```bash
+  nodemon index
+```
+
 Don’t forget to add auth_token set to 1234 in your headers
 <img width="1014" alt="Screen Shot 2022-09-12 at 8 42 05 AM" src="https://user-images.githubusercontent.com/13081314/189610690-21cf506e-fc4d-461e-a765-02bf7762d3f5.png">
 
