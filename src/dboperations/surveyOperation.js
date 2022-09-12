@@ -3,6 +3,24 @@ const fs = require('fs')
 const surveyDataPath = 'data/surveys.json'
 const questionDataPath = 'data/questions.json'
 
+var dbconfig = require('../config/dbconfig')
+const { createPool } = require('mysql');
+
+// if fetching a survey from real database eg sql
+async function getSurveybyID_RealServer({ id: id, res: res }) 
+    {
+    const pool = await createPool(dbconfig)
+    pool.query(`select * from survey WHERE survey_id = '${id}'`, function (err, result, fields) {
+        if (err) {
+            return res.json(err);
+        }
+        if (result.length > 0) return errorResponse(res,'Survey not found')
+        return res.json({
+            status: 'success',
+            'survey': result})
+    })
+}
+
 async function getSurveys({ res: res }) {
     let surveys = JSON.parse(fs.readFileSync(surveyDataPath))
     return res.json({
